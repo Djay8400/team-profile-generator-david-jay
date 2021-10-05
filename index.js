@@ -3,11 +3,11 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-// const newManager = new Manager(response.officeNumber, response.name, response.id, response.email);
-// const newEngineer = new Engineer(response.github, response.name, response.id, response.email);
-// const newIntern = new Intern(response.school, response.name, response.id, response.email);
 
-// const employee = new Employee()
+let managerDiv = ``;
+let internDiv = ``;
+let engineerDiv = ``;
+
 const enterManager = () => { //inquire prompt 
    inquirer 
     .prompt([
@@ -33,15 +33,18 @@ const enterManager = () => { //inquire prompt
         },
     ])
     .then((response) => {
-       managerDiv = `<div>
-         <div>${response.name}</div>
-         <div>${response.id}</div>
-         <div>${response.email}</div>
-         <div>${response.officeNumber}</div>
-       </div>`
-        userChoice()
-    })
-                           
+        let newManager = new Manager(response.officeNumber, response.name, response.id, response.email);
+
+        managerDiv = managerDiv + `<div class="card">
+            <div class="name">${newManager.getName()}</div>
+            <div>Manager</div>
+            <div class="id">${newManager.getId()}</div>
+            <div class="email">${newManager.getEmail()}</div>
+            <div class="other">${newManager.getofficeNumber()}</div>
+          </div>`;
+
+        userChoice();
+    })                           
 }
 
 function enterIntern() {
@@ -65,16 +68,21 @@ function enterIntern() {
             {
             type: "input",
             name: "school",
-            message: "What is the name of the school the intern attended?",   
+            message: "What is the name of the school the intern attended?", 
             },
         ])
         .then((response) => {
-         internDiv = `<div>
-            <div>${response.name}</div>
-            <div>${response.id}</div>
-            <div>${response.email}</div>
-            <div>${response.school}</div>
-        </div>`;
+           let newIntern = new Intern(response.school, response.name, response.id, response.email);
+
+            internDiv = internDiv + 
+            `<div class="card">
+                <div class="name">${newIntern.getName()}</div>
+                <div>Intern</div>
+                <div class="id">${newIntern.getId()}</div>
+                <div class="email">${newIntern.getEmail()}</div>
+                <div class="other">${newIntern.getSchool()}</div>
+            </div>`;
+
             userChoice();
         });
 }
@@ -104,12 +112,16 @@ function enterEngineer() {
             },
         ])
         .then((response) => {
-         engineerDiv = `<div>
-            <div>${response.name}</div>
-            <div>${response.id}</div>
-            <div>${response.email}</div>
-            <div>${response.github}</div>
-        </div>`;
+            let newEngineer = new Engineer(response.github, response.name, response.id, response.email);
+         
+            engineerDiv = engineerDiv + `<div class="card">
+                <div class="name">${newEngineer.getName()}</div>
+                <div>Engineer</div>
+                <div class="id">${newEngineer.getId()}</div>
+                <div class="email">${newEngineer.getEmail()}</div>
+                <div class="other">${newEngineer.getGithub()}</div>
+              </div>`;
+
             userChoice();
         });
 }
@@ -152,7 +164,8 @@ function nothingAdded() {
     </header>
     <main>
         ${managerDiv}
-        
+        ${engineerDiv}
+        ${internDiv}
     </main>
     <footer>
         <div>
@@ -162,21 +175,13 @@ function nothingAdded() {
 </body>
 </html>`;
 
-fs.writeFile('index.html', htmlText, err => {
-    err ? console.error(err) : console.log('Success!')
+    fs.writeFile('index.html', htmlText, err => {
+        err ? console.error(err) : console.log('Success!')
     });
 }
 
 enterManager();
 
 
-// .prompt([
-//     {
-//       type: "input",
-//       name: "choice",
-//       message: "Guess a letter!",
-//       // The users guess must be a number or letter
-//       //   validate: val => /[a-z1-9]/gi.test(val),          
-//     }
-//   ])
-//  
+
+ 

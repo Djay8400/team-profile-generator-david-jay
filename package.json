@@ -1,0 +1,29 @@
+{
+  "name": "team-profile-generator-david-jay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.1.5",
+    "jest": "^27.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Djay8400/team-profile-generator-david-jay.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Djay8400/team-profile-generator-david-jay/issues"
+  },
+  "homepage": "https://github.com/Djay8400/team-profile-generator-david-jay#readme"
+}

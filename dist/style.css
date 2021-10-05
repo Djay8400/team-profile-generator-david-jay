@@ -5,3 +5,26 @@ header {
     text-align: center;
     font-size: 40px;
 }
+
+.card {
+    height: 250px;
+    width: 200px;
+    border: 1px solid grey;
+    margin: 20px;
+}
+
+.name {
+
+}
+
+.id {
+
+}
+
+.email {
+
+}
+
+.other {
+
+}
