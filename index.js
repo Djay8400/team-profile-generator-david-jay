@@ -35,12 +35,16 @@ const enterManager = () => { //inquire prompt
     .then((response) => {
         let newManager = new Manager(response.officeNumber, response.name, response.id, response.email);
 
-        managerDiv = managerDiv + `<div class="card">
-            <div class="name">${newManager.getName()}</div>
-            <div>Manager</div>
-            <div class="id">${newManager.getId()}</div>
-            <div class="email">${newManager.getEmail()}</div>
-            <div class="other">${newManager.getofficeNumber()}</div>
+        managerDiv =  managerDiv + `<div class="card">
+            <div class="name">
+                <div style="padding: 10px;">${newManager.getName()}</div>
+                <div style="padding: 10px;">Manager</div>
+            </div>
+            <div class="idEmailOther">
+                <div class="id">ID: ${newManager.getId()}</div>
+                <div class="email">Email: ${newManager.getEmail()}</div>
+                <div class="other">Office Number: ${newManager.getofficeNumber()}</div>
+            </div>    
           </div>`;
 
         userChoice();
@@ -76,11 +80,15 @@ function enterIntern() {
 
             internDiv = internDiv + 
             `<div class="card">
-                <div class="name">${newIntern.getName()}</div>
-                <div>Intern</div>
-                <div class="id">${newIntern.getId()}</div>
-                <div class="email">${newIntern.getEmail()}</div>
-                <div class="other">${newIntern.getSchool()}</div>
+                <div class="name">
+                    <div style="padding: 10px;">${newIntern.getName()}</div>
+                    <div style="padding: 10px;">Intern</div>
+                </div>
+                <div class="idEmailOther">
+                    <div class="id">ID: ${newIntern.getId()}</div>
+                    <div class="email">Email: ${newIntern.getEmail()}</div>
+                    <div class="other">School: ${newIntern.getSchool()}</div>
+                </div>
             </div>`;
 
             userChoice();
@@ -115,11 +123,15 @@ function enterEngineer() {
             let newEngineer = new Engineer(response.github, response.name, response.id, response.email);
          
             engineerDiv = engineerDiv + `<div class="card">
-                <div class="name">${newEngineer.getName()}</div>
-                <div>Engineer</div>
-                <div class="id">${newEngineer.getId()}</div>
-                <div class="email">${newEngineer.getEmail()}</div>
-                <div class="other">${newEngineer.getGithub()}</div>
+                <div class="name">
+                    <div style="padding: 10px;">${newEngineer.getName()}</div>
+                    <div style="padding: 10px;">Engineer</div>
+                </div>
+                <div class="idEmailOther">
+                    <div class="id">ID: ${newEngineer.getId()}</div>
+                    <div class="email">Email: ${newEngineer.getEmail()}</div>
+                    <div class="other"> <a href="http://github.com/${newEngineer.getGithub()}">Github Username: ${newEngineer.getGithub()}</a></div>
+                </div>
               </div>`;
 
             userChoice();

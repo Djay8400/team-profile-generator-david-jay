@@ -11,20 +11,26 @@ header {
     width: 200px;
     border: 1px solid grey;
     margin: 20px;
+    float: left;
+    background-color: lightgrey;
+    align-items: center;
+    border-radius: 5px;
 }
 
 .name {
-
+    background-color: rgb(63, 82, 194);
+    color: linen;
+    text-align: center;
 }
 
-.id {
-
+.id, .email, .other {
+    border: 1px solid grey;
+    text-align: center;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 5px;
 }
 
-.email {
-
-}
-
-.other {
-
+.idEmailOther {
+    padding: 20px;
 }
